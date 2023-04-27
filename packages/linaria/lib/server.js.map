@@ -1,0 +1,1 @@
+{"version":3,"file":"server.js","names":[],"sources":["../src/server.ts"],"sourcesContent":["export * from '@linaria/server';\n"],"mappings":";;;;;AAAA;AAAA;EAAA;EAAA;EAAA;IAAA;IAAA;MAAA;IAAA;EAAA;AAAA"}

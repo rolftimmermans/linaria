@@ -1,0 +1,1 @@
+{"version":3,"file":"rollup.js","names":["loader"],"sources":["../src/rollup.ts"],"sourcesContent":["import loader from '@linaria/rollup';\n\nexport default loader;\nexport * from '@linaria/rollup';\n"],"mappings":"AAAA,OAAOA,MAAM,MAAM,iBAAiB;AAEpC,eAAeA,MAAM;AACrB,cAAc,iBAAiB"}

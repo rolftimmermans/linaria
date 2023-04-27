@@ -1,0 +1,1 @@
+{"version":3,"file":"babel.js","names":["babel"],"sources":["../src/babel.ts"],"sourcesContent":["import babel from '@linaria/babel-preset';\n\nexport default babel;\nexport * from '@linaria/babel-preset';\n"],"mappings":"AAAA,OAAOA,KAAK,MAAM,uBAAuB;AAEzC,eAAeA,KAAK;AACpB,cAAc,uBAAuB"}

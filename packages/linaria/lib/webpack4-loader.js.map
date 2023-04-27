@@ -1,0 +1,1 @@
+{"version":3,"file":"webpack4-loader.js","names":["loader"],"sources":["../src/webpack4-loader.ts"],"sourcesContent":["import loader from '@linaria/webpack4-loader';\n\nexport default loader;\nexport * from '@linaria/webpack4-loader';\n"],"mappings":";;;;;;;AAAA;AAGA;EAAA;EAAA;EAAA;EAAA;IAAA;IAAA;MAAA;IAAA;EAAA;AAAA;AAAyC;AAAA;AAAA,eAD1BA,uBAAM;AAAA"}

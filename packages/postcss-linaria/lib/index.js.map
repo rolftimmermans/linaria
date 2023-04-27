@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","names":["parse","stringify"],"sources":["../src/index.ts"],"sourcesContent":["import { parse } from './parse';\nimport { stringify } from './stringify';\n\nexport { parse, stringify };\nexport default { parse, stringify };\n"],"mappings":";;;;;;;;;;;;;;;;;;AAAA;AACA;AAAwC,eAGzB;EAAEA,KAAK,EAALA,YAAK;EAAEC,SAAS,EAATA;AAAU,CAAC;AAAA"}

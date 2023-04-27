@@ -1,0 +1,1 @@
+{"version":3,"file":"evaluators.js","names":["extractor","shaker"],"sources":["../src/evaluators.ts"],"sourcesContent":["import extractor from '@linaria/extractor';\nimport shaker from '@linaria/shaker';\n\nexport { extractor, shaker };\n"],"mappings":"AAAA,OAAOA,SAAS,MAAM,oBAAoB;AAC1C,OAAOC,MAAM,MAAM,iBAAiB;AAEpC,SAASD,SAAS,EAAEC,MAAM"}
