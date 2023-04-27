@@ -413,28 +413,32 @@ class Module {
             '❌ file has not been processed during prepare stage'
           );
 
-          const transformConfig = buildOptions({
-            envName: 'linaria',
-            plugins: [],
-            sourceMaps: true,
-            sourceFileName: filename,
-            inputSourceMap: this.options.babelOptions.inputSourceMap,
-            root: this.options.babelOptions.root,
-            babelrc: false,
-            configFile: false,
-          });
+          if (/\.json$/.test(filename)) {
+            code = fs.readFileSync(filename, 'utf-8');
+          } else {
+            const transformConfig = buildOptions({
+              envName: 'linaria',
+              plugins: [],
+              sourceMaps: true,
+              sourceFileName: filename,
+              inputSourceMap: this.options.babelOptions.inputSourceMap,
+              root: this.options.babelOptions.root,
+              babelrc: false,
+              configFile: false,
+            });
 
-          const result = babel.transformFileSync(filename, {
-            ...transformConfig,
-            filename,
-          });
+            const result = babel.transformFileSync(filename, {
+              ...transformConfig,
+              filename,
+            });
 
-          if (!result) {
-            throw new Error('Babel transform failed');
-          }
+            if (!result) {
+              throw new Error('Babel transform failed');
+            }
 
-          if (result.code) {
-            code = result.code;
+            if (result.code) {
+              code = result.code;
+            }
           }
         }
 
