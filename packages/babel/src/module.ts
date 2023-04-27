@@ -16,13 +16,14 @@ import NativeModule from 'module';
 import path from 'path';
 import vm from 'vm';
 
+import * as babel from '@babel/core';
 import type { BabelFileResult } from '@babel/core';
 
 import type { CustomDebug } from '@linaria/logger';
 import { createCustomDebug } from '@linaria/logger';
 import type { BaseProcessor } from '@linaria/tags';
 import type { StrictOptions } from '@linaria/utils';
-import { getFileIdx } from '@linaria/utils';
+import { buildOptions, getFileIdx } from '@linaria/utils';
 
 import { TransformCacheCollection } from './cache';
 import * as process from './process';
@@ -406,12 +407,35 @@ class Module {
           );
         } else {
           // If code wasn't extracted from cache, read it from the file system
-          // TODO: transpile the file
+          // and transpile it.
           m.debug(
             'code-cache',
             '❌ file has not been processed during prepare stage'
           );
-          code = fs.readFileSync(filename, 'utf-8');
+
+          const transformConfig = buildOptions({
+            envName: 'linaria',
+            plugins: [],
+            sourceMaps: true,
+            sourceFileName: filename,
+            inputSourceMap: this.options.babelOptions.inputSourceMap,
+            root: this.options.babelOptions.root,
+            babelrc: false,
+            configFile: false,
+          });
+
+          const result = babel.transformFileSync(filename, {
+            ...transformConfig,
+            filename,
+          });
+
+          if (!result) {
+            throw new Error('Babel transform failed');
+          }
+
+          if (result.code) {
+            code = result.code;
+          }
         }
 
         if (code) {
